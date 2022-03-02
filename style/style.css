@@ -1,0 +1,114 @@
+/* in this project i try to use only flex proparty as much i can.*/
+/* you can use any shape of image. */
+
+
+/*pre define stle*/
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* style for whole body secction*/
+body{
+  font-family: arial, helvetica;
+  background: #f0f0f0;
+}
+/* this variable are used to make the site responsive.*/
+:root {
+  --btn_fsize:max(1vw,12px);
+  --logo_fsize: calc(var(--btn_fsize)*2.5);
+  --title_fsize: var(--btn_fsize);
+  --footer_fsize:var(--btn_fsize);
+  /* here --footer_fsize:var(--btn_fsize); means
+  the font size of footer is equal the font size of btn.
+  if we change the font size of btn(--btn_fsize) then the font size of footer(--footer_fsize) will be changed automaticaly.and they are equal value.
+  and if we change the value of the font size of footer(--footer_fsize) then it will change only the value of footer_fsize, there is no effect on --btn_fsize.  */
+}
+/*this is the main container , which contain the whole project.
+  and the sections are menu-bar then the gallery section and the footer section.
+*/
+.container{
+  margin: 0 auto;
+  width: 95%;/*fixed the limit of main container width*/
+  display: flex;
+  flex-direction: column;
+}
+/* this is menu */
+.menubar{
+  padding: 0.5rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.menubar .logo{
+  font-size: var(--logo_fsize);
+}
+.menu_items{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.btn{
+  padding: var(--btn_fsize);
+  /* padding value equal to the size of btn font */
+  margin-left: calc(var(--btn_fsize)/2);
+  /* margin left is equal to half of the font size of btn */
+  background-image: linear-gradient(to right,#31cc0fff, #fff0);
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: var(--btn_fsize);
+}
+/*this is mainly the image container for make a gallery.*/
+.img_container{
+  margin: 2vh 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.img_item{
+  position: relative;
+  /*position ralative because the title of image's position is absolute and it will stay upper of image.*/
+  overflow: hidden;
+  /* height: 18vw; */
+height:min(18vw,32vh);
+margin: 0.5vw;
+}
+.img_item img{
+  height: 100%;
+  width: 100%;
+}
+.img_item p{
+  display: none;
+  font-size: var(--title_fsize);
+  /*initialy this title will be hidden. after hover on image block, this title will show.*/
+}
+.img_item:hover{
+  box-shadow: 0px 0px 5px #31cc0f99;
+}
+.img_item:hover p{
+  display: block;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: calc(var(--btn_fsize)/2);
+  background: #ffffff76;
+  color: #0f0f0fff;
+  text-align: justify;
+}
+.img_item:hover img{
+  opacity: 0.8;
+}
+.footer{
+  background: #d0d0d0d0 ;
+  text-align: center;
+  padding: 0.5rem;
+  font-size: var(--footer_fsize);
+}
+  
+@media only screen and (min-width:50px) and (max-width: 399px) {
+  .menu_items{
+    display: none;
+  }
+}
+
+/* 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 */
